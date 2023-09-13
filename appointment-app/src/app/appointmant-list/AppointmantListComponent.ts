@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Appointment } from '../models/appointment';
 import { OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-appointmant-list',
   templateUrl: './appointmant-list.component.html',
@@ -11,7 +12,19 @@ export class AppointmantListComponent implements OnInit {
 
   newAppointmentTitle: string = "";
   newAppointmentDate: Date = new Date();
-  appointments: Appointment[] = [];
+  appointments: Appointment[]  = [];
+  
+  minDate(): string {
+    const today = new Date();
+    // Format the date as "YYYY-MM-DD" for the input element
+    const formattedDate = today.toISOString().split('T')[0];
+    return formattedDate;
+  }
+  isInvalidNewAppointmentTitle(): boolean {
+    // You can add your validation logic here
+    // For example, check if it's empty or meets your specific criteria
+    return !this.newAppointmentTitle || this.newAppointmentTitle.trim() === '';
+  }
   ngOnInit(): void {
     console.log("got loaded")
     let saveAppointments=localStorage.getItem("appointments")

@@ -7,7 +7,8 @@ import { AppointmantListComponent } from './appointmant-list/AppointmantListComp
 @NgModule({
   declarations: [
     AppComponent,
-    AppointmantListComponent
+    AppointmantListComponent,
+    
   ],
   imports: [
     BrowserModule,

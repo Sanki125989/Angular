@@ -15,8 +15,8 @@ export class ReservationService {
 
   // CRUD
 
-  getReservations(): Reservation[] {
-    return this.reservations;
+  getReservations(): Reservation[]{
+    return this.reservations
   }
 
   getReservation(id: string): Reservation | undefined {

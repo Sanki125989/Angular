@@ -7,12 +7,14 @@
         </div>
         <div class="row mt-3">
         <div class="col-md-6">
-            <input class="form-control" [(ngModel)]="newAppointmentTitle" placeholder="Appointment descriptption ">
-
+            <input class="form-control" [(ngModel)]="newAppointmentTitle" placeholder="Appointment descriptption " [ngClass]="{'is-invalid': isInvalidNewAppointmentTitle()}">
+            <div *ngIf="isInvalidNewAppointmentTitle()" class="invalid-feedback">
+                Appointment description is required.
+              </div>
         </div>
         <div class="col-md-4">
-            <input class="form-control"   [(ngModel)]="newAppointmentDate" type="date" placeholder="Appointment date ">
-
+            <input class="form-control" [(ngModel)]="newAppointmentDate" type="date" placeholder="Appointment date" [min]="minDate()">
+            
         </div>
         <div class="col-md-2">
             <button class="btn btn-primary w-100" (click)="addAppointment()" >Add</button>

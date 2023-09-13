@@ -18,6 +18,13 @@ export class ReservationFormComponent implements OnInit {
     private activatedRoute:ActivatedRoute
     ){
   }
+    
+  minDate(): string {
+    const today = new Date();
+    // Format the date as "YYYY-MM-DD" for the input element
+    const formattedDate = today.toISOString().split('T')[0];
+    return formattedDate;
+  }
 ngOnInit(): void {
   this.reservationForm=this.formBuilder.group({ 
     checkInDate: ['',Validators.required],
